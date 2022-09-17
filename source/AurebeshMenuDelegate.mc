@@ -12,6 +12,8 @@ class AurebeshMenuDelegate extends Ui.MenuInputDelegate {
             App.getApp().setCurrentMode(AurebeshConstants.str_letters);
         } else if (item == :menu_numbers) {
             App.getApp().setCurrentMode(AurebeshConstants.str_numbers);
+        } else if (item == :menu_symbols) {
+            App.getApp().setCurrentMode(AurebeshConstants.str_symbols);
         }
         App.getApp().prepareMenuChangedAurebeshItem();
     }

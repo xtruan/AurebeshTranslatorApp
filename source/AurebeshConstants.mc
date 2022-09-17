@@ -57,7 +57,27 @@ class AurebeshConstants {
     ". - -",
     "- . . -",
     "- . - -",
-    "- - . ."];
+    "- - . .",
+    
+    //// symbols ////
+    ". - . - . -",
+    "- - . . - -",
+    ". . - - . .",
+    "- . - . - -",
+    ". - - - - .",
+    "- . . . . -",
+    "- . . - .",
+    "- - - . . .",
+    "- . - . - .",
+    "- . - - .",
+    "- . - - . -",
+    ". - . . .",
+    ". . - - . -",
+    ". - . . - .",
+    ". - - . - .",
+    ". . . - . . -",
+    ". - . - .",
+    "- . . . -"];
     
     static var asciiArray = [
     //// numbers ////
@@ -98,8 +118,29 @@ class AurebeshConstants {
     "W%Wesk",
     "X%Xesh",
     "Y%Yirt",
-    "Z%Zerek"];
+    "Z%Zerek",
+    
+    //// symbols ////
+    ".%Full stop (stop)",
+    ",%Comma",
+    "?%Question mark",
+    "!%Exclamation mark",
+    "'%Apostrophe",
+    "-%Hyphen (minus)",
+    "/%Slash",
+    ":%Colon",
+    ";%Semicolon",
+    "(%Left bracket",
+    ")%Right bracket",
+    "&%Ampersand",
+    "_%Underscore",
+    "\"%Quotation mark",
+    "@%At sign",
+    "$%Credits sign",
+    "+%Plus sign",
+    "=%Equals sign",];
       
     static var str_letters = "Letters";
     static var str_numbers = "Numbers";
+    static var str_symbols = "Symbols";
 }

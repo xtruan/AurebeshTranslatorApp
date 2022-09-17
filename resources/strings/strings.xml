@@ -3,4 +3,5 @@
 
     <string id="str_letters">Letters</string>
     <string id="str_numbers">Numbers</string>
+    <string id="str_symbols">Symbols</string>
 </strings>

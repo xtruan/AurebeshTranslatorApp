@@ -1,10 +1,10 @@
 # Aurebesh Translator
-Aurebesh Translator app for Garmin ConnectIQ - https://apps.garmin.com/en-US/apps/7f0379de-29af-40ce-975d-151b8713ad30
+Aurebesh Translator app for Garmin ConnectIQ
 
-Portable Aurebesh reference guide that goes with you everywhere! Contains letters and numbers. Ability to vibrate letter patterns in Morse Code.
+Portable Aurebesh reference guide that goes with you everywhere! Contains letters, numbers, and symbols. Ability to vibrate letter patterns in Morse Code.
 
 Usage:
-* Menu soft key or hold up/menu button to browse categories (Letters and Numbers)
+* Menu soft key or hold up/menu button to browse categories (Letters, Numbers, Symbols)
 * Swipe left or right or press down button to cycle through items in a category
 * Press and hold screen or press enter button (start/stop) to vibrate the pattern in Morse Code (letters only)
 

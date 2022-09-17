@@ -113,6 +113,12 @@ class AurebeshApp extends App.AppBase {
             } else if (getCurrentPosition() < getNumberMinPosition()) {
                 setCurrentPosition(getNumberMaxPosition());
             }
+        } else if (getCurrentMode() == AurebeshConstants.str_symbols) {
+            if (getCurrentPosition() > getSymbolMaxPosition()) {
+                setCurrentPosition(getSymbolMinPosition());
+            } else if (getCurrentPosition() < getSymbolMinPosition()) {
+                setCurrentPosition(getSymbolMaxPosition());
+            }
         }
         // debug - print currently displayed item
         //Sys.println(getCurrentAsciiString());
