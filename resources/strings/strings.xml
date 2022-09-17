@@ -1,11 +1,6 @@
 <strings>
-    <string id="AppName">Morse</string>
+    <string id="AppName">Aurebesh</string>
 
     <string id="str_letters">Letters</string>
     <string id="str_numbers">Numbers</string>
-    <string id="str_symbols">Symbols</string>
-    <string id="str_prosigns">Prosigns</string>
-    <string id="str_phrases">Phrases</string>
-    <string id="str_qcodes">Q Codes</string>
-    <string id="str_notes">Notes</string>
 </strings>

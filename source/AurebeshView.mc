@@ -2,10 +2,10 @@ using Toybox.Application as App;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 
-class MorseCodeView extends Ui.View {
+class AurebeshView extends Ui.View {
 
     hidden var firstUpdate = true;
-    hidden var morseFont;
+    hidden var aurebeshFont;
 
     function initialize() {
         View.initialize();
@@ -13,7 +13,7 @@ class MorseCodeView extends Ui.View {
 
     //! Load your resources here
     function onLayout(dc) {
-        morseFont = Ui.loadResource(Rez.Fonts.MorseFont);
+        aurebeshFont = Ui.loadResource(Rez.Fonts.AurebeshFont);
     }
 
     //! Called when this View is brought to the foreground. Restore
@@ -37,18 +37,18 @@ class MorseCodeView extends Ui.View {
             var notes = App.getApp().getNotesString();
             dc.drawText(w/2, h/2, Gfx.FONT_XTINY, notes, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
         } else {
-            var morse = App.getApp().getCurrentMorseString();
-            var seperatorPos = morse.find(MorseCodeConstants.SPLIT);
+            var aurebesh = App.getApp().getCurrentAsciiString();
+            var seperatorPos = aurebesh.find(AurebeshConstants.SPLIT);
             if (seperatorPos != null) {
-                var morseText = morse.substring(0, seperatorPos) + "\n" + 
-                    morse.substring(seperatorPos+1, morse.length());
-                dc.drawText(w/2, h/2, morseFont, morseText, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
+                var aurebeshText = aurebesh.substring(0, seperatorPos); // + "\n" + 
+                    //aurebesh.substring(seperatorPos+1, aurebesh.length());
+                dc.drawText(w/2, h/2-30, aurebeshFont, aurebeshText, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
             } else {
-                dc.drawText(w/2, h/2, morseFont, morse, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w/2, h/2-30, aurebeshFont, aurebesh, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
             }
             
             var ascii = App.getApp().getCurrentAsciiString();
-            seperatorPos = ascii.find(MorseCodeConstants.SPLIT);
+            seperatorPos = ascii.find(AurebeshConstants.SPLIT);
             if (seperatorPos != null) {
                 dc.drawText(w/2, h/20, Gfx.FONT_LARGE, ascii.substring(0, seperatorPos), Gfx.TEXT_JUSTIFY_CENTER);
                 dc.drawText(w/2, 7*h/10, Gfx.FONT_TINY, ascii.substring(seperatorPos+1, ascii.length()), Gfx.TEXT_JUSTIFY_CENTER);

@@ -3,7 +3,7 @@ using Toybox.WatchUi as Ui;
 using Toybox.System as Sys;
 using Toybox.Attention as Attn;
 
-class MorseCodeApp extends App.AppBase {
+class AurebeshApp extends App.AppBase {
     
     hidden var currentPos;
     hidden var currentMode;
@@ -12,8 +12,8 @@ class MorseCodeApp extends App.AppBase {
     function initialize() {
         AppBase.initialize();
         
-        currentPos = MorseCodeConstants.letMin;
-        currentMode = MorseCodeConstants.str_letters;
+        currentPos = AurebeshConstants.letMin;
+        currentMode = AurebeshConstants.str_letters;
         isNotesMode = false;
     }
 
@@ -30,17 +30,17 @@ class MorseCodeApp extends App.AppBase {
             if (getIsNotesMode()) {
                 return;
             } else {
-                var morseStr = getCurrentMorseString();
+                var aurebeshStr = getCurrentMorseString();
                 var vibe = {};
-                for (var i=0; i<morseStr.length(); i++) {
-                    var char = morseStr.substring(i, i+1);
-                    if (char.equals(MorseCodeConstants.DOT)) {
+                for (var i=0; i<aurebeshStr.length(); i++) {
+                    var char = aurebeshStr.substring(i, i+1);
+                    if (char.equals(AurebeshConstants.DOT)) {
                         vibe.put(i, new Attn.VibeProfile( 75, 150 ));
-                    } else if (char.equals(MorseCodeConstants.DASH)) {
+                    } else if (char.equals(AurebeshConstants.DASH)) {
                         vibe.put(i, new Attn.VibeProfile( 75, 450 ));
-                    } else if (char.equals(MorseCodeConstants.SPACE)) {
+                    } else if (char.equals(AurebeshConstants.SPACE)) {
                         vibe.put(i, new Attn.VibeProfile( 0, 150 ));
-                    } else if (char.equals(MorseCodeConstants.SPLIT)) {
+                    } else if (char.equals(AurebeshConstants.SPLIT)) {
                         vibe.put(i, new Attn.VibeProfile( 0, 450 ));
                     }
                 }
@@ -67,7 +67,7 @@ class MorseCodeApp extends App.AppBase {
     }
     
     function getNotesString() {
-        return MorseCodeConstants.notes;
+        return AurebeshConstants.notes;
     }
     
     function setCurrentMode(newMode) {
@@ -80,65 +80,39 @@ class MorseCodeApp extends App.AppBase {
         return currentMode;
     }
     
-    function prepareNextMorseCodeItem() {
+    function prepareNextAurebeshItem() {
         var pos = getCurrentPosition();
         pos++;
         setCurrentPosition(pos);
-        prepareMorseCodeItem();
+        prepareAurebeshItem();
     }
     
-    function preparePrevMorseCodeItem() {
+    function preparePrevAurebeshItem() {
         var pos = getCurrentPosition();
         pos--;
         setCurrentPosition(pos);
-        prepareMorseCodeItem();
+        prepareAurebeshItem();
     }
     
-    function prepareMenuChangedMorseCodeItem() {
+    function prepareMenuChangedAurebeshItem() {
         setCurrentPosition(999); // invalidate current position
-        prepareMorseCodeItem();
+        prepareAurebeshItem();
     }
     
-    hidden function prepareMorseCodeItem() {
+    hidden function prepareAurebeshItem() {
         setNotesMode(false);
-        if (getCurrentMode() == MorseCodeConstants.str_letters) {
+        if (getCurrentMode() == AurebeshConstants.str_letters) {
             if (getCurrentPosition() > getLetterMaxPosition()) {
                 setCurrentPosition(getLetterMinPosition());
             } else if (getCurrentPosition() < getLetterMinPosition()) {
                 setCurrentPosition(getLetterMaxPosition());
             }
-        } else if (getCurrentMode() == MorseCodeConstants.str_numbers) {
+        } else if (getCurrentMode() == AurebeshConstants.str_numbers) {
             if (getCurrentPosition() > getNumberMaxPosition()) {
                 setCurrentPosition(getNumberMinPosition());
             } else if (getCurrentPosition() < getNumberMinPosition()) {
                 setCurrentPosition(getNumberMaxPosition());
             }
-        } else if (getCurrentMode() == MorseCodeConstants.str_symbols) {
-            if (getCurrentPosition() > getSymbolMaxPosition()) {
-                setCurrentPosition(getSymbolMinPosition());
-            } else if (getCurrentPosition() < getSymbolMinPosition()) {
-                setCurrentPosition(getSymbolMaxPosition());
-            }
-        } else if (getCurrentMode() == MorseCodeConstants.str_prosigns) {
-            if (getCurrentPosition() > getProsignMaxPosition()) {
-                setCurrentPosition(getProsignMinPosition());
-            } else if (getCurrentPosition() < getProsignMinPosition()) {
-                setCurrentPosition(getProsignMaxPosition());
-            }
-        } else if (getCurrentMode() == MorseCodeConstants.str_phrases) {
-            if (getCurrentPosition() > getPhraseMaxPosition()) {
-                setCurrentPosition(getPhraseMinPosition());
-            } else if (getCurrentPosition() < getPhraseMinPosition()) {
-                setCurrentPosition(getPhraseMaxPosition());
-            }
-        } else if (getCurrentMode() == MorseCodeConstants.str_qcodes) {
-            if (getCurrentPosition() > getQCodeMaxPosition()) {
-                setCurrentPosition(getQCodeMinPosition());
-            } else if (getCurrentPosition() < getQCodeMinPosition()) {
-                setCurrentPosition(getQCodeMaxPosition());
-            }
-        } else if (getCurrentMode() == MorseCodeConstants.str_notes) {
-            setNotesMode(true);
         }
         // debug - print currently displayed item
         //Sys.println(getCurrentAsciiString());
@@ -161,64 +135,64 @@ class MorseCodeApp extends App.AppBase {
     }
     
     hidden function getAsciiAtPosition(pos) {
-        return MorseCodeConstants.asciiArray[pos];
+        return AurebeshConstants.asciiArray[pos];
     }
     
     hidden function getMorseAtPosition(pos) {
-        return MorseCodeConstants.morseArray[pos];
+        return AurebeshConstants.aurebeshArray[pos];
     }
     
     hidden function getNumberMinPosition() {
-        return MorseCodeConstants.numMin;
+        return AurebeshConstants.numMin;
     }
     
     hidden function getNumberMaxPosition() {
-        return MorseCodeConstants.numMax;
+        return AurebeshConstants.numMax;
     }
     
     hidden function getLetterMinPosition() {
-        return MorseCodeConstants.letMin;
+        return AurebeshConstants.letMin;
     }
     
     hidden function getLetterMaxPosition() {
-        return MorseCodeConstants.letMax;
+        return AurebeshConstants.letMax;
     }
     
     hidden function getSymbolMinPosition() {
-        return MorseCodeConstants.symMin;
+        return AurebeshConstants.symMin;
     }
     
     hidden function getSymbolMaxPosition() {
-        return MorseCodeConstants.symMax;
+        return AurebeshConstants.symMax;
     }
     
     hidden function getProsignMinPosition() {
-        return MorseCodeConstants.proMin;
+        return AurebeshConstants.proMin;
     }
     
     hidden function getProsignMaxPosition() {
-        return MorseCodeConstants.proMax;
+        return AurebeshConstants.proMax;
     }
     
     hidden function getPhraseMinPosition() {
-        return MorseCodeConstants.phsMin;
+        return AurebeshConstants.phsMin;
     }
     
     hidden function getPhraseMaxPosition() {
-        return MorseCodeConstants.phsMax;
+        return AurebeshConstants.phsMax;
     }
     
     hidden function getQCodeMinPosition() {
-        return MorseCodeConstants.qcdMin;
+        return AurebeshConstants.qcdMin;
     }
     
     hidden function getQCodeMaxPosition() {
-        return MorseCodeConstants.qcdMax;
+        return AurebeshConstants.qcdMax;
     }
 
     //! Return the initial view of your application here
     function getInitialView() {
-        return [ new MorseCodeView(), new MorseCodeDelegate() ];
+        return [ new AurebeshView(), new AurebeshDelegate() ];
     }
 
 }
