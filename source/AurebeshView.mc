@@ -42,16 +42,16 @@ class AurebeshView extends Ui.View {
             if (seperatorPos != null) {
                 var aurebeshText = aurebesh.substring(0, seperatorPos); // + "\n" + 
                     //aurebesh.substring(seperatorPos+1, aurebesh.length());
-                dc.drawText(w/2, h/2-30, aurebeshFont, aurebeshText, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w/2, (h/2)-20, aurebeshFont, aurebeshText, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
             } else {
-                dc.drawText(w/2, h/2-30, aurebeshFont, aurebesh, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w/2, (h/2)-20, aurebeshFont, aurebesh, Gfx.TEXT_JUSTIFY_CENTER|Gfx.TEXT_JUSTIFY_VCENTER);
             }
             
             var ascii = App.getApp().getCurrentAsciiString();
             seperatorPos = ascii.find(AurebeshConstants.SPLIT);
             if (seperatorPos != null) {
                 dc.drawText(w/2, h/20, Gfx.FONT_LARGE, ascii.substring(0, seperatorPos), Gfx.TEXT_JUSTIFY_CENTER);
-                dc.drawText(w/2, 7*h/10, Gfx.FONT_TINY, ascii.substring(seperatorPos+1, ascii.length()), Gfx.TEXT_JUSTIFY_CENTER);
+                dc.drawText(w/2, 15*h/20, Gfx.FONT_TINY, ascii.substring(seperatorPos+1, ascii.length()), Gfx.TEXT_JUSTIFY_CENTER);
             } else {
                 dc.drawText(w/2, h/20, Gfx.FONT_LARGE, ascii, Gfx.TEXT_JUSTIFY_CENTER);
             }
