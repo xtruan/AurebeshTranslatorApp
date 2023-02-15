@@ -140,6 +140,8 @@ class AurebeshConstants {
     "+%Plus sign",
     "=%Equals sign",];
       
+    static var notes = "May the Force be with you";
+      
     static var str_letters = "Letters";
     static var str_numbers = "Numbers";
     static var str_symbols = "Symbols";

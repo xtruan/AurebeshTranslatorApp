@@ -16,6 +16,7 @@ class AurebeshDelegate extends Ui.BehaviorDelegate {
     function onHold(tap) {
         // do vibe
         App.getApp().vibeForCurrentMorse();
+        return true;
     }
     
     function onSwipe(swipe) {
@@ -28,6 +29,7 @@ class AurebeshDelegate extends Ui.BehaviorDelegate {
             App.getApp().preparePrevAurebeshItem();
             Ui.requestUpdate();
         }
+        return true;
     }
     
     function onKey(key) {
@@ -44,5 +46,6 @@ class AurebeshDelegate extends Ui.BehaviorDelegate {
             App.getApp().prepareNextAurebeshItem();
             Ui.requestUpdate();
         }
+        return true;
     }
 }

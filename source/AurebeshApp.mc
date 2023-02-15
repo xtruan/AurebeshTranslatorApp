@@ -31,22 +31,22 @@ class AurebeshApp extends App.AppBase {
                 return;
             } else {
                 var aurebeshStr = getCurrentMorseString();
-                var vibe = {};
+                var vibe = [] as Toybox.Lang.Array<Attn.VibeProfile>;
                 for (var i=0; i<aurebeshStr.length(); i++) {
                     var char = aurebeshStr.substring(i, i+1);
                     if (char.equals(AurebeshConstants.DOT)) {
-                        vibe.put(i, new Attn.VibeProfile( 75, 150 ));
+                        vibe.add(new Attn.VibeProfile( 75, 150 ));
                     } else if (char.equals(AurebeshConstants.DASH)) {
-                        vibe.put(i, new Attn.VibeProfile( 75, 450 ));
+                        vibe.add(new Attn.VibeProfile( 75, 450 ));
                     } else if (char.equals(AurebeshConstants.SPACE)) {
-                        vibe.put(i, new Attn.VibeProfile( 0, 150 ));
+                        vibe.add(new Attn.VibeProfile( 0, 150 ));
                     } else if (char.equals(AurebeshConstants.SPLIT)) {
-                        vibe.put(i, new Attn.VibeProfile( 0, 450 ));
+                        vibe.add(new Attn.VibeProfile( 0, 450 ));
                     }
                 }
                 // length above 8 causes crash :(
-                if (vibe.values().size() <= 8) {
-                    Attn.vibrate(vibe.values());
+                if (vibe.size() <= 8) {
+                    Attn.vibrate(vibe);
                 }
             }
         } else {
