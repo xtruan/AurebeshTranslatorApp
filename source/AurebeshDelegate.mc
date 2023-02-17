@@ -25,12 +25,14 @@ class AurebeshDelegate extends Ui.BehaviorDelegate {
             // next
             App.getApp().prepareNextAurebeshItem();
             Ui.requestUpdate();
+            return true;
         } else if (swipe.getDirection() == Ui.SWIPE_RIGHT) {
             // prev
             App.getApp().preparePrevAurebeshItem();
             Ui.requestUpdate();
+            return true;
         }
-        return true;
+        return false;
     }
     
     function onKey(key) {
