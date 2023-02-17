@@ -1,4 +1,5 @@
 using Toybox.Application as App;
+using Toybox.System as Sys;
 using Toybox.WatchUi as Ui;
 
 class AurebeshDelegate extends Ui.BehaviorDelegate {
@@ -37,15 +38,21 @@ class AurebeshDelegate extends Ui.BehaviorDelegate {
         if (key.getKey() == Ui.KEY_ENTER) {
             // do vibe
             App.getApp().vibeForCurrentMorse();
+            return true;
         } else if (key.getKey() == Ui.KEY_UP) {
             // prev
             App.getApp().preparePrevAurebeshItem();
             Ui.requestUpdate();
+            return true;
         } else if (key.getKey() == Ui.KEY_DOWN) {
             // next
             App.getApp().prepareNextAurebeshItem();
             Ui.requestUpdate();
+            return true;
+        } else if (key.getKey() == Ui.KEY_ESC) {
+        	Sys.println("Quitting!");
+        	return false;
         }
-        return true;
+        return false;
     }
 }
